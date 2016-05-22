@@ -1,0 +1,34 @@
+<div>
+  <div class="row">
+    <div class="col-md-3">&nbsp;</div>
+    <div class="col-md-6">
+      <p class="text-center">Bucketlist management</p>
+    </div>
+    <div class="col-md-3">&nbsp;</div>
+  </div>
+
+  <div class="row container">
+    <div class="col-md-7">&nbsp;</div>
+    <div class="col-md-5">
+      <form ng-submit="addBucketlist()" class="form-inline pull-right">
+        <fieldset class="form-group">
+          <input ng-model="bucketName" class="form-control" placeholder=" Bucketlist Name" required/>
+          <button type="submit" class="btn btn-success">Add New</button>
+        </fieldset>
+      </form>
+    </div>
+    </div>
+  </div>
+
+  <div class="small-top-margin">
+    <div class="row">
+      <div class="col-md-2">&nbsp;</div>
+      <uib-accordion class="col-md-8" close-others="oneAtATime">
+        <uib-accordion-group ng-repeat="bucketlist in bucketlists" heading="{{bucketlist.name}}" is-open="false">
+          This content is straight in the template.
+        </uib-accordion-group>
+      </uib-accordion>
+      <div class="col-md-2">&nbsp;</div>
+    </div>
+  </div>
+</div>

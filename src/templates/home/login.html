@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-3">&nbsp;</div>
+  <div class="col-md-6">
+    <h3 class="text-center">User Login</h3>
+    <p ng-show="error" class="red-text">{{error}}</p>
+    <form ng-submit="loginUser()">
+      <fieldset class="form-group">
+        <label>Enter Email Address</label>
+        <input ng-model="email" type="email" class="form-control" placeholder="Email" required/>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Enter Password</label>
+        <input ng-model="password" type="password" class="form-control" placeholder="Password" required/>
+      </fieldset>
+      
+      <button class="btn btn-primary center-block" type="submit">Log In</button><br />
+    </form>
+  </div>
+  <div class="col-md-3">&nbsp;</div>
+</div>

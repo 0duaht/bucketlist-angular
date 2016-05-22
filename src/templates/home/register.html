@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-3">&nbsp;</div>
+  <div class="col-md-6">
+    <h3 class="text-center">User Registration</h3>
+    <p ng-show="error" class="red-text">{{error}}</p>
+    <form ng-submit="registerUser()">
+      <fieldset class="form-group">
+        <label>Enter Full Name</label>
+        <input ng-model="name" class="form-control" placeholder="Name" required/>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Enter Email Address</label>
+        <input ng-model="email" class="form-control" type="email" placeholder="Email" required/>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Enter Password</label>
+        <input ng-model="password" type="password" class="form-control" placeholder="Password" required/>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label>Confirm Password</label>
+        <input ng-model="password_confirm" type="password" class="form-control" placeholder="Confirm Password" required/>
+      </fieldset>
+      
+      <button type="submit" class="center-block btn btn-primary">Log In</button><br />
+    </form>
+  </div>
+  <div class="col-md-3">&nbsp;</div>
+</div>
