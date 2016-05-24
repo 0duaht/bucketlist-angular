@@ -40,6 +40,11 @@ gulp.task("scripts", function(){
   .pipe(gulp.dest("./build/js"))
 })
 
+gulp.task("copyFonts", function(){
+  gulp.src("./src/fonts/*")
+  .pipe(gulp.dest("./build/fonts"))
+})
+
 gulp.task("styles", function(){
   gulp.src(["./src/css/bootstrap.min.css", "./src/css/*.css"])
   .pipe(concat("style.css"))
@@ -49,7 +54,7 @@ gulp.task("styles", function(){
 })
 
 gulp.task("build", function(){
-  runSequence("clean", ["copyLib", "htmlpage", "scripts", "styles"])
+  runSequence("clean", ["copyLib", "htmlpage", "scripts", "styles", "copyFonts"])
 })
 
 gulp.task("default", ["build"], function(){

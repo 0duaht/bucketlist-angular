@@ -12,23 +12,87 @@
     <div class="col-md-5">
       <form ng-submit="addBucketlist()" class="form-inline pull-right">
         <fieldset class="form-group">
-          <input ng-model="bucketName" class="form-control" placeholder=" Bucketlist Name" required/>
+          <input ng-model="names.bucketlist" class="form-control" placeholder=" Bucketlist Name" required/>
           <button type="submit" class="btn btn-success">Add New</button>
         </fieldset>
       </form>
     </div>
     </div>
   </div>
-
   <div class="small-top-margin">
     <div class="row">
       <div class="col-md-2">&nbsp;</div>
-      <uib-accordion class="col-md-8" close-others="oneAtATime">
-        <uib-accordion-group ng-repeat="bucketlist in bucketlists" heading="{{bucketlist.name}}" is-open="false">
-          This content is straight in the template.
-        </uib-accordion-group>
-      </uib-accordion>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-4">&nbsp;</div>
+          <div ng-show="messages.success != ''" class="col-md-4 alert alert-success">
+            {{messages.success}}
+          </div>
+          <div ng-show="messages.error != ''" class="col-md-4 alert alert-danger">
+            {{messages.error}}
+          </div>
+          <div class="col-md-4">&nbsp;</div>
+        </div>
+        <uib-accordion close-others="oneAtATime">
+          <div class="panel" ng-repeat="bucketlist in bucketlists">
+            <div class="row">
+              <div class="col-md-11">
+                <uib-accordion-group class="inline" is-open="false">
+                  <uib-accordion-heading>
+                    <div>{{bucketlist.name}}</div>
+                  </uib-accordion-heading>
+                  <uib-accordion-inner>
+                    <div class="row">
+                      <div class="col-md-2">&nbsp;</div>
+                      <div class="col-md-8">
+                        <div class="row text-center">
+                          <form ng-submit="update(bucketlist.id, bucketlist.name)" class="form-inline">
+                            <fieldset class="form-group">
+                              <input ng-model="bucketlist.name" ng-model-options="{ updateOn: ''}" class="form-control" required/>
+                              <button type="submit" class="btn btn-success">Update</button>
+                            </fieldset>
+                          </form>
+
+                          <div class="row pad-round" ng-hide="bucketlist.items.length != 0">No items in bucketlist yet.</div>
+
+                          <div ng-show="bucketlist.items.length > 0">
+                            <div class="row small-top-margin">
+                              <div class="col-md-4" ng-repeat="item in bucketlist.items">
+                                <div class="row">
+                                  <div class="checkbox col-md-8">
+                                    <label>
+                                      <input type="checkbox" ng-model="item.done" ng-click="saveItem(bucketlist.id, item)"> {{::item.name}}
+                                    </label>
+                                  </div>
+                                  <span ng-click= "deleteItem(bucketlist.id, item, $index)" class="col-md-3 pointer v-align glyphicon glyphicon-remove red" aria-hidden="true"></span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-1">&nbsp;</div>
+                          </div>
+
+                          <form ng-submit="addItem(bucketlist.id)" class="form-inline">
+                            <fieldset class="form-group">
+                              <input ng-model="names.item" class="form-control" placeholder="Item Name" required/>
+                              <button type="submit" class="btn btn-success">Add New</button>
+                            </fieldset>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="col-md-2">&nbsp;</div>
+                    </div>
+                  </uib-accordion-inner>
+                </uib-accordion-group>
+              </div>
+              <button type="button" ng-click="delete(bucketlist.id)" class="col-md-1 btn btn-danger" aria-label="Delete">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </uib-accordion>
+      </div>
       <div class="col-md-2">&nbsp;</div>
     </div>
   </div>
 </div>
+

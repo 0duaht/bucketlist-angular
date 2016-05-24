@@ -3,7 +3,7 @@
 }
 
 .pad-round {
-  padding: 14px;
+  padding: 1em;
 }
 
 .red-text {
@@ -14,6 +14,34 @@
   margin-top: 8em;
 }
 
+.red {
+  color: red;
+}
+
 .small-top-margin {
   margin-top: 3em;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.alert.ng-hide-remove {
+
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    -webkit-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+
+    display: block !important;
+    opacity: 1;
+}
+
+
+.alert.ng-hide {
+    opacity: 0;
+}
+
+.v-align {
+  margin-top: 0.8em;
 }

@@ -10,7 +10,6 @@
           $q.all([authPromise])
           .then(
             function(res){
-              console.log("in one here")
               if (res == undefined) { 
                 cookies.remove("loggedIn");
                 return;
