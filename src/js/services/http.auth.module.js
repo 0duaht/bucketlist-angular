@@ -15,10 +15,9 @@
         config.headers["Cache-Control"] = "no-cache"
         config.headers["Pragma"] = "no-cache"
         var jwt_token = $cookies.get("jwt-token")
-        if (jwt_token){
-          config.headers.Authorization = "token " + jwt_token
-          return config;
-        }else return config;
+        if (jwt_token) config.headers.Authorization = "token " + jwt_token
+        
+        return config;
       }
     }
   }
