@@ -36,7 +36,6 @@
         return
       }
 
-      if (!$scope.email && !$scope.passsword) return
       $scope.error = ""
 
       $scope.$parent.showDialog();
